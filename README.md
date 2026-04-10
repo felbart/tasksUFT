@@ -1,73 +1,66 @@
-# React + TypeScript + Vite
+# TasksUFT — Sistema Gerenciador de Tarefas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema web de gerenciamento de projetos e tarefas desenvolvido como Projeto Integrador III-B do curso de Análise e Desenvolvimento de Sistemas da PUC Goiás, em parceria com a Superintendência de Comunicação (SUCOM) da Universidade Federal do Tocantins (UFT).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Sobre o Projeto
 
-## React Compiler
+A SUCOM não dispõe de uma ferramenta centralizada para gerenciar suas demandas internas. Todo o acompanhamento de tarefas era feito via e-mail e WhatsApp, gerando perda de informações e dificuldade no controle de prazos. O TasksUFT foi desenvolvido para resolver esse problema, oferecendo um ambiente único e organizado para a equipe do setor.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Cadastro e autenticação de usuários
+- Criação e gerenciamento de projetos com prazo
+- Criação e acompanhamento de tarefas
+- Quadro Kanban com drag-and-drop entre colunas
+- Calendário de prazos com visualização por status
+- Dashboard com resumo de projetos e tarefas
+- Interface responsiva para desktop e mobile
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tecnologias
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| Camada | Tecnologia |
+|---|---|
+| Frontend | React 19 + TypeScript |
+| Build | Vite |
+| Estilização | Tailwind CSS v4 |
+| Roteamento | React Router v7 |
+| Backend / Auth / DB | Supabase (PostgreSQL) |
+| Drag and Drop | @dnd-kit |
+| Ícones | Lucide React |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Estrutura do Projeto
+src/
+├── components/
+│   ├── domain/        # Componentes de domínio (TaskCard, KanbanColumn, ProjectCard)
+│   └── ui/            # Componentes reutilizáveis (Button, Input, Modal, PageHeader)
+├── contexts/          # AuthContext
+├── hooks/             # Hooks customizados
+├── layouts/           # AppLayout com sidebar responsiva
+├── lib/               # Configuração do Supabase
+├── pages/             # Dashboard, Projects, Kanban, Calendar, Login
+├── router/            # Rotas e ProtectedRoute
+├── services/          # projects.service.ts, tasks.service.ts
+└── types/             # Tipagens globais
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## Autor
+
+Felipe Silva Leite
+Análise e Desenvolvimento de Sistemas — PUC Goiás  
+Projeto Integrador III-B — 2026
+
+---
+
+## Instituição Parceira
+
+Superintendência de Comunicação (SUCOM)  
+Universidade Federal do Tocantins (UFT)
